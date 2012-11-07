@@ -12,29 +12,28 @@ In fact you only need the HANZI part, but I also have a symbol colored red or gr
 
 
 ``` bash
-
-function exitstatus {
-
-	EXITSTATUS="$?"
-        BOLD="\[\e[1m\]"
-        RED="\[\e[1;31m\]"
-	MAGENTA="\[\e[35;1m\]"
-	BLUE="\[\e[34;1m\]"
-	GREEN="\e[0;32m\]"
-        OFF="\[\e[m\]"
-
-	HANZI=`<full path to the script>/anki-prompt/prompt.pl`
-
-        if [ "$EXITSTATUS" -eq "0" ]
-        then
-		PS1="${HANZI}${BOLD}${MAGENTA}\u${OFF} ${BLUE}\w${OFF} ${GREEN}☠${OFF} "
-        else
-                PS1="${HANZI}${BOLD}${MAGENTA}\u${OFF} ${BLUE}\w${OFF} ${RED}☠${OFF} "
-        fi
-
-        PS2="${BOLD}>${OFF} "
-
-}
-
-PROMPT_COMMAND=exitstatus
+    function exitstatus {
+    
+    	EXITSTATUS="$?"
+            BOLD="\[\e[1m\]"
+            RED="\[\e[1;31m\]"
+    	MAGENTA="\[\e[35;1m\]"
+    	BLUE="\[\e[34;1m\]"
+    	GREEN="\e[0;32m\]"
+            OFF="\[\e[m\]"
+    
+    	HANZI=`<full path to the script>/anki-prompt/prompt.pl`
+    
+            if [ "$EXITSTATUS" -eq "0" ]
+            then
+    		PS1="${HANZI}${BOLD}${MAGENTA}\u${OFF} ${BLUE}\w${OFF} ${GREEN}☠${OFF} "
+            else
+                    PS1="${HANZI}${BOLD}${MAGENTA}\u${OFF} ${BLUE}\w${OFF} ${RED}☠${OFF} "
+            fi
+    
+            PS2="${BOLD}>${OFF} "
+    
+    }
+    
+    PROMPT_COMMAND=exitstatus
 ```
