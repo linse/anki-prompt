@@ -1,9 +1,15 @@
+#anki-prompt
+flashcards in the bash prompt
+
+![the prompt](https://github.com/linse/anki-prompt/blob/master/screenshot.png)
+
 Contents:
 
 * [3000char.html](https://github.com/linse/anki-prompt/blob/master/3000char.html) original character frequency list
 * [README](https://github.com/linse/anki-prompt/blob/master/README) this file
 * [pagetext.txt](https://github.com/linse/anki-prompt/blob/master/pagetext.txt) character frequency list without html tags
 * [prompt.pl](https://github.com/linse/anki-prompt/blob/master/prompt.pl) Perl script displaying a random character
+* [screenshot.png](https://github.com/linse/anki-prompt/blob/master/screenshot.png) what it looks like
 
 The character frequency list is from http://www.zein.se/patrick/3000char.html and I saved it without tags to pagetext.txt.
 

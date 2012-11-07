@@ -3,6 +3,7 @@
 use Color::Output;
 Color::Output::Init;
 
+# adjust the path to your facts file accordingly
 open(MYINPUTFILE, "</Users/linse/Documents/cloned/anki-prompt/pagetext.txt"); # open for input
 my(@lines) = <MYINPUTFILE>; # read file into list
 
@@ -27,10 +28,10 @@ foreach $line (@lines) {
 }
 close(MYINPUTFILE);
 
-#printHanzi($hanzi_list[rand @hanzi_list]);
+# print one out of the first 100 ones, randomly
 printHanzi($hanzi_list[rand 100]);
 
-
+# possibly adjust to the formatting of your facts 
 sub printHanzi {
   my $input = shift;
   while ($input =~ m/^\s*(\S*)\s*(\[\S+\])\s+([^\[]*)(.*)/) {
@@ -39,15 +40,8 @@ sub printHanzi {
 	chomp($3);
 	print "$3";
 	$input = $4;
-	#if ($4 and ($3 !~ /\n$/)) {
-		print "\n";
-		#}
+	print "\n";
   }
-}
-
-sub printBlue {
-  my $input = shift;
-  cprint ("\x033$input\x030");
 }
 
 sub printRed {
