@@ -1,7 +1,7 @@
 #anki-prompt
 flashcards in the bash prompt
 
-![the prompt](https://github.com/linse/anki-prompt/blob/master/screenshot.png)
+![the prompt](https://raw.github.com/linse/anki-prompt/master/screenshot.png)
 
 Contents:
 
