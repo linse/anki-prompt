@@ -1,10 +1,23 @@
 #! /usr/bin/perl -w
 
-use Color::Output;
-Color::Output::Init;
+# User configurable parameters:
+
+my $TRAIN_FILE = "/Users/linse/Documents/cloned/anki-prompt/pagetext.txt";
+my $TOP_ENTRIES = 100;
+
+
+my $has_color = 0;
+eval("use Color::Output");
+if ($@) {
+  use Term::ANSIColor;
+}else{
+  eval("Color::Output::Init");
+  $has_color = 1;
+}
+use strict;
 
 # adjust the path to your facts file accordingly
-open(MYINPUTFILE, "</Users/linse/Documents/cloned/anki-prompt/pagetext.txt"); # open for input
+open(MYINPUTFILE, "<$TRAIN_FILE"); # open for input
 my(@lines) = <MYINPUTFILE>; # read file into list
 
 my(@hanzi_list);
@@ -28,8 +41,8 @@ foreach $line (@lines) {
 }
 close(MYINPUTFILE);
 
-# print one out of the first 100 ones, randomly
-printHanzi($hanzi_list[rand 100]);
+# print one out of the first $TOP_ENTRIES ones, randomly
+printHanzi($hanzi_list[rand $TOP_ENTRIES]);
 
 # possibly adjust to the formatting of your facts 
 sub printHanzi {
@@ -46,5 +59,11 @@ sub printHanzi {
 
 sub printRed {
   my $input = shift;
-  cprint ("\x034$input\x030");
+  if ($has_color) {
+    cprint ("\x034$input\x030");
+  } else{ 
+    print color 'red';
+    print $input;
+    print color 'reset';
+  }
 }
